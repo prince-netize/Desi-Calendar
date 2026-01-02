@@ -59,8 +59,8 @@ export default function DayCell({
         )}
         <Text
           style={{
-            fontSize: 16,
-            fontWeight: '500',
+            fontSize: 14,
+            fontWeight: '400',
             color: isToday || hasEvent ? '#FFFFFF' : '#000',
           }}
         >

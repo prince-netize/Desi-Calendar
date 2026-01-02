@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import colors from '../styles/colors';
 import { MONTHS } from '../constants/months';
+import Feather from 'react-native-vector-icons/Feather';
 
 export default function MonthYearBar({
   month,
@@ -20,7 +21,7 @@ export default function MonthYearBar({
     <View style={styles.container}>
       {/* Left Arrow */}
       <TouchableOpacity onPress={onPrev}>
-        <Text style={styles.arrow}>‹</Text>
+        <Feather name="chevron-left" size={20} color={colors.white} />
       </TouchableOpacity>
 
       {/* Month Dropdown */}
@@ -33,7 +34,7 @@ export default function MonthYearBar({
           }}
         >
           <Text style={styles.text}>{MONTHS[month]}</Text>
-          <Text style={styles.dropdown}>▼</Text>
+          <Feather name="chevron-down" size={14} color="#000" />
         </TouchableOpacity>
 
         {showMonthDrop && (
@@ -63,7 +64,7 @@ export default function MonthYearBar({
           }}
         >
           <Text style={styles.text}>{year}</Text>
-          <Text style={styles.dropdown}>▼</Text>
+          <Feather name="chevron-down" size={14} color="#000" />
         </TouchableOpacity>
 
         {showYearDrop && (
@@ -83,9 +84,8 @@ export default function MonthYearBar({
         )}
       </View>
 
-      {/* Right Arrow */}
       <TouchableOpacity onPress={onNext}>
-        <Text style={styles.arrow}>›</Text>
+        <Feather name="chevron-right" size={20} color={colors.white} />
       </TouchableOpacity>
     </View>
   );
@@ -100,11 +100,6 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 16,
     zIndex: 10,
-  },
-  arrow: {
-    fontSize: 26,
-    color: colors.white,
-    paddingHorizontal: 12,
   },
   pill: {
     backgroundColor: colors.white,

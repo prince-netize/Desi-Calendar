@@ -60,9 +60,8 @@ export default function CalendarGrid({ year, month, onDayPress }) {
             />
           );
         })}
-
-        <CalendarEventsBar year={year} month={month} />
       </View>
+      <CalendarEventsBar year={year} month={month} />
     </View>
   );
 }

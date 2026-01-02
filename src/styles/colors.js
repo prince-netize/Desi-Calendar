@@ -8,9 +8,9 @@ export default {
   eventBlue: '#3589C7',
   eventYellow: '#F9B72B',
   weekColor: '#0049B7',
-  SANGRANDH: '#2196F3', // blue
-  MAASYA: '#FFEB3B', // yellow
-  PURNIMA: '#F44336', // red
+  SANGRANDH: '#2196F3', 
+  MAASYA: '#FFEB3B', 
+  PURNIMA: '#F44336', 
 };
 
 
