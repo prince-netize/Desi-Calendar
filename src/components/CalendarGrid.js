@@ -4,6 +4,7 @@ import DayCell from './DayCell';
 import { generateCalendarGrid } from '../utils/calendarHelpers';
 import { getTithi } from '../utils/tithiHelpers';
 import colors from '../styles/colors';
+import CalendarEventsBar from './CalendarEventsBar';
 
 const WEEKDAYS = ['ਸੋਮ', 'ਮੰਗਲ', 'ਬੁੱਧ', 'ਵੀਰ', 'ਸ਼ੁੱਕਰ', 'ਸ਼ਨੀ', 'ਐਤ'];
 
@@ -13,6 +14,7 @@ export default function CalendarGrid({ year, month, onDayPress }) {
 
   return (
     <View>
+      {/* Weekdays */}
       <View style={{ flexDirection: 'row', marginBottom: 4 }}>
         {WEEKDAYS.map((day, i) => (
           <View
@@ -33,16 +35,18 @@ export default function CalendarGrid({ year, month, onDayPress }) {
         ))}
       </View>
 
-      <View
-        style={{
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-        }}
-      >
+      {/* Days */}
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
         {grid.map((item, i) => {
           const date = new Date(year, month, item.day);
           const isToday =
             item.current && date.toDateString() === today.toDateString();
+
+          const dateKey = item.current
+            ? `${year}-${String(month + 1).padStart(2, '0')}-${String(
+                item.day,
+              ).padStart(2, '0')}`
+            : null;
 
           return (
             <DayCell
@@ -51,10 +55,13 @@ export default function CalendarGrid({ year, month, onDayPress }) {
               current={item.current}
               isToday={isToday}
               tithi={item.current ? getTithi(date) : ''}
-              onPress={() => item.current && onDayPress?.(item.day)}
+              dateKey={dateKey}
+              onPress={() => item.current && onDayPress?.(dateKey)}
             />
           );
         })}
+
+        <CalendarEventsBar year={year} month={month} />
       </View>
     </View>
   );

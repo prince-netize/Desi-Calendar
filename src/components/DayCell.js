@@ -1,8 +1,26 @@
 /* eslint-disable react-native/no-inline-styles */
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import colors from '../styles/colors';
+import { getEventsForDate } from '../utils/Events';
 
-export default function DayCell({ day, current, isToday, tithi, onPress }) {
+export default function DayCell({
+  day,
+  current,
+  isToday,
+  tithi,
+  dateKey,
+  onPress,
+}) {
+  const events = dateKey ? getEventsForDate(dateKey) : [];
+  const hasEvent = events.length > 0;
+  const primaryEvent = hasEvent ? events[0] : null;
+
+  const backgroundColor = isToday
+    ? colors.today
+    : hasEvent
+    ? primaryEvent.color
+    : '#F6F6F6';
+
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -15,29 +33,35 @@ export default function DayCell({ day, current, isToday, tithi, onPress }) {
       }}
     >
       <View
-        style={[
-          {
-            flex: 1,
-            width: '110%',
-            borderRadius: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-            opacity: current ? 1 : 0.35,
-          },
-          {
-            backgroundColor: '#F6F6F6',
-          },
-          isToday && {
-            backgroundColor: colors.today,
-          },
-        ]}
+        style={{
+          flex: 1,
+          width: '110%',
+          borderRadius: 3,
+          alignItems: 'center',
+          justifyContent: 'center',
+          opacity: current ? 1 : 0.35,
+          backgroundColor,
+        }}
       >
-        {/* Day Number */}
+        {hasEvent && (
+          <Image
+            source={primaryEvent.icon}
+            style={{
+              position: 'absolute',
+              top: 4,
+              right: 4,
+              width: 12,
+              height: 12,
+              opacity: current ? 1 : 0.6,
+            }}
+            resizeMode="contain"
+          />
+        )}
         <Text
           style={{
             fontSize: 16,
-            fontWeight: '400',
-            color: isToday ? '#FFFFFF' : current ? '#000' : '#888',
+            fontWeight: '500',
+            color: isToday || hasEvent ? '#FFFFFF' : '#000',
           }}
         >
           {day}
@@ -49,7 +73,7 @@ export default function DayCell({ day, current, isToday, tithi, onPress }) {
             style={{
               fontSize: 10,
               marginTop: 2,
-              color: isToday ? '#FFFFFF' : current ? '#000' : '#888',
+              color: isToday || hasEvent ? '#FFFFFF' : '#000',
             }}
           >
             {tithi}
