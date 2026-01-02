@@ -22,7 +22,6 @@ export default function DayCell({
     ? primaryEvent.color
     : '#F6F6F6';
 
-  // ✅ Dynamic text color
   const textColor = isToday
     ? '#FFFFFF'
     : hasEvent

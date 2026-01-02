@@ -66,33 +66,33 @@ export default function CalendarScreen() {
       />
 
       <View style={{ backgroundColor: colors.primary }} />
+      <View style={{ paddingHorizontal: 10 }}>
+        <SubHeader monthIndex={month} year={year} />
 
-      <SubHeader monthIndex={month} year={year} />
+        <Animated.View
+          {...pan.panHandlers}
+          style={{ transform: [{ translateX }] }}
+        >
+          <CalendarGrid year={year} month={month} onDayPress={handleDayPress} />
+        </Animated.View>
 
-      <Animated.View
-        {...pan.panHandlers}
-        style={{ transform: [{ translateX }] }}
-      >
-        <CalendarGrid year={year} month={month} onDayPress={handleDayPress} />
-      </Animated.View>
+        {modalVisible && (
+          <BlurView
+            style={StyleSheet.absoluteFill}
+            blurType="light"
+            blurAmount={10}
+            reducedTransparencyFallbackColor="white"
+          />
+        )}
 
-      {/* Blur Overlay: Only renders when modal is visible */}
-      {modalVisible && (
-        <BlurView
-          style={StyleSheet.absoluteFill}
-          blurType="light"
-          blurAmount={10}
-          reducedTransparencyFallbackColor="white"
+        <EventModal
+          visible={modalVisible}
+          event={selectedEvent}
+          year={year}
+          month={month}
+          onClose={() => setModalVisible(false)}
         />
-      )}
-
-      <EventModal
-        visible={modalVisible}
-        event={selectedEvent}
-        year={year}
-        month={month}
-        onClose={() => setModalVisible(false)}
-      />
+      </View>
     </View>
   );
 }

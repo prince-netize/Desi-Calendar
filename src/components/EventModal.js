@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import colors from '../styles/colors';
 import { ICONS } from '../utils/Events';
-import { ENGLISH_MONTHS } from '../utils/months';
 
 export default function EventModal({ visible, event, onClose }) {
   if (!event) return null;
@@ -45,7 +44,7 @@ export default function EventModal({ visible, event, onClose }) {
             <View style={styles.textBox}>
               <Text style={styles.title}>{event.titlePa}</Text>
               <Text style={styles.subtitle}>
-                {event.day} {ENGLISH_MONTHS[event.month]}
+                {event.day} {[event.month]}
               </Text>
             </View>
 
@@ -101,7 +100,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 13,
-    color: '#777',
+    color: '#000000ff',
     marginTop: 4,
   },
   close: {

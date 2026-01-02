@@ -54,7 +54,6 @@ export default function CalendarEventsBar({ year, month }) {
               marginRight: 8,
             }}
           />
-          {/* Text */}
           <View>
             <Text
               style={{

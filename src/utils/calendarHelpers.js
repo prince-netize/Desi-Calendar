@@ -3,10 +3,9 @@ export const getDaysInMonth = (year, month) => {
   return new Date(year, month + 1, 0).getDate();
 };
 
-// Monday = 0
 export const getFirstWeekday = (year, month) => {
   const day = new Date(year, month, 1).getDay();
-  return day === 0 ? 6 : day - 1; // Monday start
+  return day === 0 ? 6 : day - 1;
 };
 
 export const generateCalendarGrid = (year, month) => {
@@ -38,7 +37,6 @@ export const generateCalendarGrid = (year, month) => {
   return grid;
 };
 
-// ================= COLOR MAP =================
 export const EVENT_COLORS = {
   MAASYA: 'rgba(53, 137, 199, 0.1)',
   SANGRANDH: 'rgba(249, 183, 43, 0.1)',

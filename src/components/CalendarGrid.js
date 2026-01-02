@@ -14,7 +14,6 @@ export default function CalendarGrid({ year, month, onDayPress }) {
 
   return (
     <View>
-      {/* Weekdays */}
       <View style={{ flexDirection: 'row', marginBottom: 4 }}>
         {WEEKDAYS.map((day, i) => (
           <View
@@ -35,7 +34,6 @@ export default function CalendarGrid({ year, month, onDayPress }) {
         ))}
       </View>
 
-      {/* Days */}
       <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
         {grid.map((item, i) => {
           const date = new Date(year, month, item.day);

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export const getTithi = date => {
   // Tithi calculation
   const refNewMoon = new Date('2024-01-11');
@@ -6,7 +7,6 @@ export const getTithi = date => {
 
   let tithi = '';
 
-  // Punjabi month 1:1 per Gregorian month
   const PUNJABI_MONTHS = [
     'ਮਘ',
     'ਫਗਵਾਨ',
