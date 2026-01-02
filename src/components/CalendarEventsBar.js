@@ -60,7 +60,7 @@ export default function CalendarEventsBar({ year, month }) {
               style={{
                 fontSize: 13,
                 fontWeight: '500',
-                color: colors.textPrimary,
+                color: colors.Ename,
               }}
             >
               {event.titlePa}
@@ -68,7 +68,7 @@ export default function CalendarEventsBar({ year, month }) {
             <Text
               style={{
                 fontSize: 12,
-                color: colors.textSecondary,
+                color: colors.weekColor,
               }}
             >
               {event.day} {monthNamePa}

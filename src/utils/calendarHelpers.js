@@ -40,7 +40,13 @@ export const generateCalendarGrid = (year, month) => {
 
 // ================= COLOR MAP =================
 export const EVENT_COLORS = {
-  MAASYA: '#F9B72B', // yellow
-  SANGRANDH: '#3589C7', // blue
-  PURNIMA: '#FF5C76', // pink/red
+  MAASYA: 'rgba(53, 137, 199, 0.1)',
+  SANGRANDH: 'rgba(249, 183, 43, 0.1)',
+  PURNIMA: 'rgba(255, 92, 118, 0.1)',
+};
+
+export const EVENT_TEXT_COLORS = {
+  MAASYA: '#3589C7',
+  SANGRANDH: '#F9B72B',
+  PURNIMA: '#FF5C76',
 };

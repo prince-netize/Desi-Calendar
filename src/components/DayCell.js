@@ -2,6 +2,7 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import colors from '../styles/colors';
 import { getEventsForDate } from '../utils/Events';
+import { EVENT_TEXT_COLORS } from '../utils/calendarHelpers';
 
 export default function DayCell({
   day,
@@ -20,6 +21,13 @@ export default function DayCell({
     : hasEvent
     ? primaryEvent.color
     : '#F6F6F6';
+
+  // ✅ Dynamic text color
+  const textColor = isToday
+    ? '#FFFFFF'
+    : hasEvent
+    ? EVENT_TEXT_COLORS[primaryEvent.type] || '#000'
+    : '#000';
 
   return (
     <TouchableOpacity
@@ -57,11 +65,13 @@ export default function DayCell({
             resizeMode="contain"
           />
         )}
+
+        {/* Day number */}
         <Text
           style={{
             fontSize: 14,
-            fontWeight: '400',
-            color: isToday || hasEvent ? '#FFFFFF' : '#000',
+            fontWeight: '500',
+            color: textColor,
           }}
         >
           {day}
@@ -73,7 +83,8 @@ export default function DayCell({
             style={{
               fontSize: 10,
               marginTop: 2,
-              color: isToday || hasEvent ? '#FFFFFF' : '#000',
+              color: textColor,
+              opacity: 0.85,
             }}
           >
             {tithi}

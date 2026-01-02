@@ -9,12 +9,6 @@ export const ICONS = {
   SANGRANDH: require('./images/sun.png'),
 };
 
-// export default EVENT_BG = {
-//   SANGRANDH: '#2196F3', // blue
-//   MAASYA: '#FFEB3B', // yellow
-//   PURNIMA: '#F44336', // red
-// };
-
 // ================= EVENTS BY YEAR =================
 export const EVENTS_BY_YEAR = {
   2023: {
