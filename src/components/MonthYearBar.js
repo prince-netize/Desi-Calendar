@@ -1,0 +1,144 @@
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import colors from '../styles/colors';
+import { MONTHS } from '../constants/months';
+
+export default function MonthYearBar({
+  month,
+  year,
+  onPrev,
+  onNext,
+  onMonthSelect,
+  onYearSelect,
+}) {
+  const [showMonthDrop, setShowMonthDrop] = useState(false);
+  const [showYearDrop, setShowYearDrop] = useState(false);
+
+  const years = [2023, 2024, 2025, 2026];
+
+  return (
+    <View style={styles.container}>
+      {/* Left Arrow */}
+      <TouchableOpacity onPress={onPrev}>
+        <Text style={styles.arrow}>‹</Text>
+      </TouchableOpacity>
+
+      {/* Month Dropdown */}
+      <View>
+        <TouchableOpacity
+          style={styles.pill}
+          onPress={() => {
+            setShowMonthDrop(!showMonthDrop);
+            setShowYearDrop(false);
+          }}
+        >
+          <Text style={styles.text}>{MONTHS[month]}</Text>
+          <Text style={styles.dropdown}>▼</Text>
+        </TouchableOpacity>
+
+        {showMonthDrop && (
+          <View style={styles.dropdownBox}>
+            {MONTHS.map((m, i) => (
+              <TouchableOpacity
+                key={i}
+                onPress={() => {
+                  onMonthSelect(i);
+                  setShowMonthDrop(false);
+                }}
+              >
+                <Text style={styles.dropItem}>{m}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        )}
+      </View>
+
+      {/* Year Dropdown */}
+      <View>
+        <TouchableOpacity
+          style={styles.pill}
+          onPress={() => {
+            setShowYearDrop(!showYearDrop);
+            setShowMonthDrop(false);
+          }}
+        >
+          <Text style={styles.text}>{year}</Text>
+          <Text style={styles.dropdown}>▼</Text>
+        </TouchableOpacity>
+
+        {showYearDrop && (
+          <View style={styles.dropdownBox}>
+            {years.map(y => (
+              <TouchableOpacity
+                key={y}
+                onPress={() => {
+                  onYearSelect(y);
+                  setShowYearDrop(false);
+                }}
+              >
+                <Text style={styles.dropItem}>{y}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        )}
+      </View>
+
+      {/* Right Arrow */}
+      <TouchableOpacity onPress={onNext}>
+        <Text style={styles.arrow}>›</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.primary,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    zIndex: 10,
+  },
+  arrow: {
+    fontSize: 26,
+    color: colors.white,
+    paddingHorizontal: 12,
+  },
+  pill: {
+    backgroundColor: colors.white,
+    borderRadius: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    marginHorizontal: 6,
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: colors.textDark,
+  },
+  dropdown: {
+    fontSize: 12,
+    marginLeft: 6,
+    color: colors.textLight,
+  },
+  dropdownBox: {
+    position: 'absolute',
+    top: 40,
+    width: 140,
+    backgroundColor: colors.white,
+    borderRadius: 10,
+    paddingVertical: 6,
+    elevation: 5,
+    zIndex: 100,
+  },
+  dropItem: {
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    fontSize: 16,
+    color: colors.textDark,
+  },
+});
