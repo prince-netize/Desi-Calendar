@@ -8,18 +8,18 @@ export const getTithi = date => {
 
   // Punjabi month 1:1 per Gregorian month
   const PUNJABI_MONTHS = [
-    'ਮਘ', // Jan
-    'ਫਗਵਾਨ', // Feb
-    'ਚੇਤ', // Mar
-    'ਵੈਸਾਖ', // Apr
-    'ਜੇਠ', // May
-    'ਹਾੜ', // Jun
-    'ਸਾਵਣ', // Jul
-    'ਭਾਦੋਂ', // Aug
-    'ਅੱਸੂ', // Sep
-    'ਕੱਤਕ', // Oct
-    'ਮੱਘਰ', // Nov
-    'ਪੋਹ', // Dec
+    'ਮਘ',
+    'ਫਗਵਾਨ',
+    'ਚੇਤ',
+    'ਵੈਸਾਖ',
+    'ਜੇਠ',
+    'ਹਾੜ',
+    'ਸਾਵਣ',
+    'ਭਾਦੋਂ',
+    'ਅੱਸੂ',
+    'ਕੱਤਕ',
+    'ਮੱਘਰ',
+    'ਪੋਹ',
   ];
 
   const punjabiMonth = PUNJABI_MONTHS[date.getMonth()];

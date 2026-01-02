@@ -33,7 +33,6 @@ export default function CalendarGrid({ year, month, onDayPress }) {
         ))}
       </View>
 
-      {/* Days Grid */}
       <View
         style={{
           flexDirection: 'row',

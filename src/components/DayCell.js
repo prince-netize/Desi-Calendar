@@ -15,24 +15,29 @@ export default function DayCell({ day, current, isToday, tithi, onPress }) {
       }}
     >
       <View
-        style={{
-          flex: 1,
-          backgroundColor: '#F6F6F6',
-          width: '110%',
-          borderRadius: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-          opacity: current ? 1 : 0.35,
-          borderWidth: isToday ? 2 : 0,
-          borderColor: isToday ? colors.primary : 'transparent',
-        }}
+        style={[
+          {
+            flex: 1,
+            width: '110%',
+            borderRadius: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            opacity: current ? 1 : 0.35,
+          },
+          {
+            backgroundColor: '#F6F6F6',
+          },
+          isToday && {
+            backgroundColor: colors.today,
+          },
+        ]}
       >
         {/* Day Number */}
         <Text
           style={{
             fontSize: 16,
-            fontWeight: '600',
-            color: current ? '#000' : '#888',
+            fontWeight: '400',
+            color: isToday ? '#FFFFFF' : current ? '#000' : '#888',
           }}
         >
           {day}
@@ -44,7 +49,7 @@ export default function DayCell({ day, current, isToday, tithi, onPress }) {
             style={{
               fontSize: 10,
               marginTop: 2,
-              color: '#555',
+              color: isToday ? '#FFFFFF' : current ? '#000' : '#888',
             }}
           >
             {tithi}
