@@ -64,11 +64,8 @@ export const EVENTS_BY_YEAR = {
     '2023-09-29': [{ id: 'purnima-sep', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
     '2023-09-28': [{ id: 'maasya-sep', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
 
-    '2023-10-14': [
-      { id: 'sangrandh-oct', titlePa: 'ਸੰਗਰਾਂਦ', type: 'SANGRANDH' },
-    ],
+    '2023-10-14': [{ id: 'maasya-nov', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
     '2023-10-28': [{ id: 'purnima-oct', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
-    '2023-10-28': [{ id: 'maasya-oct', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
 
     '2023-11-13': [
       { id: 'sangrandh-nov', titlePa: 'ਸੰਗਰਾਂਦ', type: 'SANGRANDH' },
@@ -76,11 +73,8 @@ export const EVENTS_BY_YEAR = {
     '2023-11-27': [{ id: 'purnima-nov', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
     '2023-11-26': [{ id: 'maasya-nov', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
 
-    '2023-12-12': [
-      { id: 'sangrandh-dec', titlePa: 'ਸੰਗਰਾਂਦ', type: 'SANGRANDH' },
-    ],
+    '2023-12-12': [{ id: 'maasya-jan', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
     '2023-12-26': [{ id: 'purnima-dec', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
-    '2023-12-26': [{ id: 'maasya-dec', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
   },
 
   2024: {
@@ -171,9 +165,7 @@ export const EVENTS_BY_YEAR = {
     '2025-02-28': [{ id: 'maasya-feb', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
 
     '2025-03-14': [{ id: 'purnima-mar', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
-    '2025-03-14': [
-      { id: 'sangrandh-mar', titlePa: 'ਸੰਗਰਾਂਦ', type: 'SANGRANDH' },
-    ],
+
     '2025-03-29': [{ id: 'maasya-mar', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
 
     '2025-04-12': [{ id: 'purnima-apr', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],

@@ -1,4 +1,4 @@
-// Nanakshahi months with Gregorian start dates
+// Correct Nanakshahi months with fixed Gregorian start dates
 const NANAKSHAHI_MONTHS = [
   { name: 'ਚੇਤ', startMonth: 2, startDay: 14 }, // Mar 14
   { name: 'ਵੈਸਾਖ', startMonth: 3, startDay: 14 }, // Apr 14
@@ -15,25 +15,29 @@ const NANAKSHAHI_MONTHS = [
 ];
 
 export const getPunjabiMonth = date => {
-  const year = date.getFullYear();
+  let year = date.getFullYear();
 
-  //  start dates for this year
+  // If before March 14, use previous Nanakshahi year
+  const nanakshahiYearStart = new Date(year, 2, 14); // Mar 14
+  if (date < nanakshahiYearStart) {
+    year -= 1;
+  }
+
   const monthRanges = NANAKSHAHI_MONTHS.map((m, idx) => {
     const start = new Date(year, m.startMonth, m.startDay);
-    // next month wraps to next index or next year
-    const nextMonth = NANAKSHAHI_MONTHS[(idx + 1) % 12];
-    let end = new Date(year, nextMonth.startMonth, nextMonth.startDay);
-    if (end <= start) end.setFullYear(year + 1); // wrap to next year
+    const next = NANAKSHAHI_MONTHS[(idx + 1) % 12];
+
+    let end = new Date(year, next.startMonth, next.startDay);
+    if (end <= start) end.setFullYear(year + 1);
+
     return { name: m.name, start, end };
   });
 
   const found = monthRanges.find(m => date >= m.start && date < m.end);
-  if (found) return found.name;
 
-  return 'ਫੱਗਣ';
+  return found ? found.name : 'ਚੇਤ';
 };
 
 export const getTithi = date => {
-  const punjabiMonth = getPunjabiMonth(date);
-  return `| ${punjabiMonth}`;
+  return `| ${getPunjabiMonth(date)}`;
 };
