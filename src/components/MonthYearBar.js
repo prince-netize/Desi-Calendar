@@ -1,7 +1,8 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import colors from '../styles/colors';
-import { MONTHS } from '../constants/months';
+import { MONTHS } from '../utils/months';
 import Feather from 'react-native-vector-icons/Feather';
 
 export default function MonthYearBar({
@@ -15,7 +16,7 @@ export default function MonthYearBar({
   const [showMonthDrop, setShowMonthDrop] = useState(false);
   const [showYearDrop, setShowYearDrop] = useState(false);
 
-  const years = [2023, 2024, 2025, 2026];
+  const years = [2023, 2024, 2025, 2026, 2027];
 
   return (
     <View style={styles.container}>
@@ -68,7 +69,9 @@ export default function MonthYearBar({
         </TouchableOpacity>
 
         {showYearDrop && (
-          <View style={styles.dropdownBox}>
+          <View
+            style={[styles.dropdownBox, { flexDirection: 'column-reverse' }]}
+          >
             {years.map(y => (
               <TouchableOpacity
                 key={y}
@@ -129,7 +132,6 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     elevation: 5,
     zIndex: 100,
-    flexDirection: 'column-reverse',
   },
   dropItem: {
     paddingVertical: 8,

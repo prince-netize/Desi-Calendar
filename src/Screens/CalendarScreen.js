@@ -11,7 +11,7 @@ import colors from '../styles/colors';
 import { BlurView } from '@react-native-community/blur';
 
 export default function CalendarScreen() {
-  const [month, setMonth] = useState(10);
+  const [month, setMonth] = useState(1);
   const [year, setYear] = useState(2025);
 
   const [modalVisible, setModalVisible] = useState(false);
