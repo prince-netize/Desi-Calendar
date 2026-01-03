@@ -43,7 +43,7 @@ export default function DayCell({
         style={{
           flex: 1,
           width: '110%',
-          borderRadius: 3,
+          borderRadius: 4,
           alignItems: 'center',
           justifyContent: 'center',
           opacity: current ? 1 : 0.35,
@@ -65,7 +65,7 @@ export default function DayCell({
           />
         )}
 
-        {/* Day number */}
+        {/* Gregorian day */}
         <Text
           style={{
             fontSize: 14,
@@ -76,7 +76,7 @@ export default function DayCell({
           {day}
         </Text>
 
-        {/* Tithi */}
+        {/* Nanakshahi month */}
         {tithi ? (
           <Text
             style={{
@@ -86,7 +86,7 @@ export default function DayCell({
               opacity: 0.85,
             }}
           >
-            {tithi}
+            {tithi.replace(/^\|\s*/, '')}
           </Text>
         ) : null}
       </View>

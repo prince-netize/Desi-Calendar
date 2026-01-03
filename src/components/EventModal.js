@@ -9,11 +9,21 @@ import {
 } from 'react-native';
 import colors from '../styles/colors';
 import { ICONS } from '../utils/Events';
+import { ENGLISH_MONTHS } from '../utils/months';
 
 export default function EventModal({ visible, event, onClose }) {
   if (!event) return null;
 
-  const iconSource = ICONS[event.type];
+  let dateString = '';
+  if (event.date) {
+    const d = new Date(event.date);
+    if (!isNaN(d)) {
+      const day = d.getDate();
+      const month = ENGLISH_MONTHS[d.getMonth()];
+      const year = d.getFullYear();
+      dateString = `${day} ${month} ${year}`;
+    }
+  }
 
   return (
     <Modal
@@ -29,26 +39,23 @@ export default function EventModal({ visible, event, onClose }) {
       >
         <View style={styles.center}>
           <View style={styles.card}>
-            {/* Icon */}
             <View style={[styles.iconBox, { backgroundColor: event.color }]}>
-              {iconSource && (
+              {event.icon && (
                 <Image
-                  source={iconSource}
+                  source={event.icon}
                   style={styles.icon}
                   resizeMode="contain"
                 />
               )}
             </View>
 
-            {/* Text */}
             <View style={styles.textBox}>
               <Text style={styles.title}>{event.titlePa}</Text>
-              <Text style={styles.subtitle}>
-                {event.day} {[event.month]}
-              </Text>
+              {dateString ? (
+                <Text style={styles.subtitle}>{dateString}</Text>
+              ) : null}
             </View>
 
-            {/* Close button */}
             <TouchableOpacity onPress={onClose} style={styles.close}>
               <Text style={styles.closeText}>✕</Text>
             </TouchableOpacity>
@@ -100,7 +107,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 13,
-    color: '#000000ff',
+    color: '#999',
     marginTop: 4,
   },
   close: {

@@ -56,6 +56,14 @@ export default function CalendarScreen() {
   return (
     <View style={{ flex: 1, backgroundColor: '#fff' }}>
       <Header />
+      {modalVisible && (
+        <BlurView
+          style={StyleSheet.absoluteFill}
+          blurType="light"
+          blurAmount={10}
+          reducedTransparencyFallbackColor="white"
+        />
+      )}
       <MonthYearBar
         month={month}
         year={year}
