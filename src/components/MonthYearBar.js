@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     elevation: 5,
     zIndex: 100,
+    flexDirection: 'column-reverse',
   },
   dropItem: {
     paddingVertical: 8,

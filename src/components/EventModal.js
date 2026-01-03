@@ -8,7 +8,6 @@ import {
   Image,
 } from 'react-native';
 import colors from '../styles/colors';
-import { ICONS } from '../utils/Events';
 import { ENGLISH_MONTHS } from '../utils/months';
 
 export default function EventModal({ visible, event, onClose }) {

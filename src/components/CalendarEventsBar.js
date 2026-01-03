@@ -43,12 +43,12 @@ export default function CalendarEventsBar({ year, month }) {
         >
           <Image
             source={event.icon}
-            style={{ width: 18, height: 18, marginRight: 6 }}
+            style={{ width: 18, height: 18, marginRight: 5 }}
             resizeMode="contain"
           />
           <View
             style={{
-              width: 1,
+              width: 1.5,
               height: 40,
               backgroundColor: '#DDD',
               marginRight: 8,
