@@ -45,7 +45,7 @@ export default function DayCell({
           width: '110%',
           alignItems: 'center',
           justifyContent: 'center',
-          opacity: current ? 1 : 0.35,
+          opacity: 1,
           backgroundColor,
         }}
       >
@@ -70,6 +70,7 @@ export default function DayCell({
             fontSize: 14,
             fontWeight: '500',
             color: textColor,
+            opacity: current ? 1 : 0.2,
           }}
         >
           {day}

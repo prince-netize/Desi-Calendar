@@ -32,7 +32,7 @@ export default function CalendarGrid({ year, month, onDayPress }) {
               style={{
                 fontWeight: '500',
                 color: colors.weekColor,
-                fontSize: 12,
+                fontSize: 14,
               }}
             >
               {day}
