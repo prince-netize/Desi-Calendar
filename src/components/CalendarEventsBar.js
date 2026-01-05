@@ -6,7 +6,7 @@ import { PUNJABI_MONTHS_NAMES } from '../utils/months';
 import colors from '../styles/colors';
 
 export default function CalendarEventsBar({ year, month }) {
-  const monthNamePa = PUNJABI_MONTHS_NAMES[month];
+  const monthNamePb = PUNJABI_MONTHS_NAMES[month];
   const monthKey = String(month + 1).padStart(2, '0');
 
   const events = Object.entries(EVENTS_BY_YEAR[year] || {})
@@ -70,7 +70,7 @@ export default function CalendarEventsBar({ year, month }) {
                 color: colors.weekColor,
               }}
             >
-              {event.day} {monthNamePa}
+              {event.day} {monthNamePb}
             </Text>
           </View>
         </View>
