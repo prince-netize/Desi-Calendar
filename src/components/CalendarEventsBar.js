@@ -27,8 +27,8 @@ export default function CalendarEventsBar({ year, month }) {
       style={{
         marginTop: 12,
         paddingTop: 10,
-        borderTopWidth: 1,
-        borderColor: '#DDD',
+        borderTopWidth: 1.5,
+        borderColor: '#BCBCBC',
         flexDirection: 'row',
         justifyContent: 'space-around',
       }}

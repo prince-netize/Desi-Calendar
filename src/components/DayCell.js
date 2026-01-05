@@ -35,7 +35,7 @@ export default function DayCell({
       activeOpacity={0.7}
       style={{
         width: '14.28%',
-        aspectRatio: 1,
+        height: 54,
         padding: 3,
       }}
     >
@@ -43,7 +43,6 @@ export default function DayCell({
         style={{
           flex: 1,
           width: '110%',
-          borderRadius: 4,
           alignItems: 'center',
           justifyContent: 'center',
           opacity: current ? 1 : 0.35,
@@ -82,7 +81,7 @@ export default function DayCell({
             style={{
               fontSize: 10,
               marginTop: 2,
-              color: textColor,
+              color: '#6D6D6D',
               opacity: 0.85,
             }}
           >

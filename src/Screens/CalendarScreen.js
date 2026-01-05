@@ -55,7 +55,10 @@ export default function CalendarScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: '#fff' }}>
-      <Header />
+      <View style={{ marginVertical: 10 }}>
+        <Header />
+      </View>
+
       {modalVisible && (
         <BlurView
           style={StyleSheet.absoluteFill}
@@ -64,18 +67,22 @@ export default function CalendarScreen() {
           reducedTransparencyFallbackColor="white"
         />
       )}
-      <MonthYearBar
-        month={month}
-        year={year}
-        onPrev={goPrev}
-        onNext={goNext}
-        onMonthSelect={setMonth}
-        onYearSelect={setYear}
-      />
+      <View style={{ marginVertical: 10 }}>
+        <MonthYearBar
+          month={month}
+          year={year}
+          onPrev={goPrev}
+          onNext={goNext}
+          onMonthSelect={setMonth}
+          onYearSelect={setYear}
+        />
+      </View>
 
       <View style={{ backgroundColor: colors.primary }} />
       <View style={{ paddingHorizontal: 10 }}>
-        <SubHeader monthIndex={month} year={year} />
+        <View style={{ marginVertical: 10, alignItems: 'center' }}>
+          <SubHeader monthIndex={month} year={year} />
+        </View>
 
         <Animated.View
           {...pan.panHandlers}

@@ -16,13 +16,18 @@ export default function MonthYearBar({
   const [showMonthDrop, setShowMonthDrop] = useState(false);
   const [showYearDrop, setShowYearDrop] = useState(false);
 
-  const years = [2023, 2024, 2025, 2026, 2027];
+  const years = [2023, 2024, 2025, 2026];
 
   return (
     <View style={styles.container}>
       {/* Left Arrow */}
       <TouchableOpacity onPress={onPrev}>
-        <Feather name="chevron-left" size={20} color={colors.white} />
+        <Feather
+          name="chevron-left"
+          size={20}
+          color={colors.white}
+          style={{ marginRight: 10 }}
+        />
       </TouchableOpacity>
 
       {/* Month Dropdown */}
@@ -35,7 +40,12 @@ export default function MonthYearBar({
           }}
         >
           <Text style={styles.text}>{MONTHS[month]}</Text>
-          <Feather name="chevron-down" size={14} color="#000" />
+          <Feather
+            name="chevron-down"
+            size={14}
+            color="#000"
+            style={{ marginLeft: 6 }}
+          />
         </TouchableOpacity>
 
         {showMonthDrop && (
@@ -65,7 +75,12 @@ export default function MonthYearBar({
           }}
         >
           <Text style={styles.text}>{year}</Text>
-          <Feather name="chevron-down" size={14} color="#000" />
+          <Feather
+            name="chevron-down"
+            size={14}
+            color="#000"
+            style={{ marginLeft: 6 }}
+          />
         </TouchableOpacity>
 
         {showYearDrop && (
@@ -88,7 +103,12 @@ export default function MonthYearBar({
       </View>
 
       <TouchableOpacity onPress={onNext}>
-        <Feather name="chevron-right" size={20} color={colors.white} />
+        <Feather
+          name="chevron-right"
+          size={20}
+          color={colors.white}
+          style={{ marginLeft: 10 }}
+        />
       </TouchableOpacity>
     </View>
   );

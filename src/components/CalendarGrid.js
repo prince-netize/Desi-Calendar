@@ -19,15 +19,20 @@ export default function CalendarGrid({ year, month, onDayPress }) {
           <View
             key={i}
             style={{
-              width: '14.28%',
-              alignItems: 'center',
-              paddingVertical: 4,
+              width: '14.30%',
+              height: 40,
               backgroundColor: '#F6F6F6',
-              borderRadius: 1,
+              alignItems: 'center',
               justifyContent: 'center',
             }}
           >
-            <Text style={{ fontWeight: '400', color: colors.weekColor }}>
+            <Text
+              style={{
+                fontWeight: '500',
+                color: colors.weekColor,
+                fontSize: 12,
+              }}
+            >
               {day}
             </Text>
           </View>
