@@ -2,11 +2,11 @@
 import { View, Text, Image } from 'react-native';
 import { EVENT_COLORS } from '../utils/calendarHelpers';
 import { EVENTS_BY_YEAR, ICONS } from '../utils/Events';
-import { ENGLISH_MONTHS } from '../utils/months';
+import { PUNJABI_MONTHS_NAMES } from '../utils/months';
 import colors from '../styles/colors';
 
 export default function CalendarEventsBar({ year, month }) {
-  const monthNamePa = ENGLISH_MONTHS[month];
+  const monthNamePa = PUNJABI_MONTHS_NAMES[month];
   const monthKey = String(month + 1).padStart(2, '0');
 
   const events = Object.entries(EVENTS_BY_YEAR[year] || {})

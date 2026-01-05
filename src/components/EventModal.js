@@ -8,7 +8,7 @@ import {
   Image,
 } from 'react-native';
 import colors from '../styles/colors';
-import { ENGLISH_MONTHS } from '../utils/months';
+import { PUNJABI_MONTHS_NAMES } from '../utils/months';
 
 export default function EventModal({ visible, event, onClose }) {
   if (!event) return null;
@@ -18,7 +18,7 @@ export default function EventModal({ visible, event, onClose }) {
     const d = new Date(event.date);
     if (!isNaN(d)) {
       const day = d.getDate();
-      const month = ENGLISH_MONTHS[d.getMonth()];
+      const month = PUNJABI_MONTHS_NAMES[d.getMonth()];
       const year = d.getFullYear();
       dateString = `${day} ${month} ${year}`;
     }

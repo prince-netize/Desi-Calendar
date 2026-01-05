@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { ENGLISH_MONTHS, PUNJABI_MONTHS } from '../utils/months';
+import { PUNJABI_MONTHS_NAMES, PUNJABI_MONTHS } from '../utils/months';
 
 export default function SubHeader({ monthIndex, year }) {
-  const monthName = ENGLISH_MONTHS[monthIndex];
+  const monthName = PUNJABI_MONTHS_NAMES[monthIndex];
   const monthType = PUNJABI_MONTHS[monthIndex];
 
   return (

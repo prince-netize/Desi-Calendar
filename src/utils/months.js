@@ -12,7 +12,7 @@ export const MONTHS = [
   'Nov',
   'Dec',
 ];
-export const ENGLISH_MONTHS = [
+export const PUNJABI_MONTHS_NAMES = [
   'ਜਨਵਰੀ',
   'ਫ਼ਰਵਰੀ',
   'ਮਾਰਚ',

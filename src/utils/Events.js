@@ -231,7 +231,7 @@ export const EVENTS_BY_YEAR = {
     '2026-01-18': [{ id: 'maasya-jan', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
 
     '2026-02-01': [{ id: 'purnima-feb', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
-    '2026-02-13': [
+    '2026-02-12': [
       { id: 'sangrandh-feb', titlePa: 'ਸੰਗਰਾਂਦ', type: 'SANGRANDH' },
     ],
     '2026-02-17': [{ id: 'maasya-feb', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
@@ -249,52 +249,53 @@ export const EVENTS_BY_YEAR = {
     '2026-04-17': [{ id: 'maasya-apr', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
 
     '2026-05-01': [{ id: 'purnima-may', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
-    '2026-05-14': [
+    '2026-05-15': [
       { id: 'sangrandh-may', titlePa: 'ਸੰਗਰਾਂਦ', type: 'SANGRANDH' },
     ],
-    '2026-05-17': [{ id: 'maasya-may', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
+    '2026-05-16': [{ id: 'maasya-may', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
 
-    '2026-06-01': [{ id: 'purnima-jun', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
-    '2026-06-14': [
+    '2026-06-29': [{ id: 'purnima-jun', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
+    '2026-06-15': [
       { id: 'sangrandh-jun', titlePa: 'ਸੰਗਰਾਂਦ', type: 'SANGRANDH' },
     ],
     '2026-06-15': [{ id: 'maasya-jun', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
 
-    '2026-07-01': [{ id: 'purnima-jul', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
+    // '2026-07-01': [{ id: 'purnima-jul', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
     '2026-07-16': [
       { id: 'sangrandh-jul', titlePa: 'ਸੰਗਰਾਂਦ', type: 'SANGRANDH' },
     ],
-    '2026-07-15': [{ id: 'maasya-jul', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
+    '2026-07-14': [{ id: 'maasya-jul', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
 
-    '2026-07-30': [{ id: 'purnima-aug', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
-    '2026-08-14': [{ id: 'maasya-aug', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
-    '2026-08-16': [
+    '2026-07-29': [{ id: 'purnima-aug', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
+    '2026-08-12': [{ id: 'maasya-aug', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
+    '2026-08-17': [
       { id: 'sangrandh-aug', titlePa: 'ਸੰਗਰਾਂਦ', type: 'SANGRANDH' },
     ],
 
-    '2026-08-29': [{ id: 'purnima-sep', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
-    '2026-09-12': [{ id: 'maasya-sep', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
-    '2026-09-16': [
+    '2026-08-28': [{ id: 'purnima-sep', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
+    '2026-09-11': [{ id: 'maasya-sep', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
+    '2026-09-17': [
       { id: 'sangrandh-sep', titlePa: 'ਸੰਗਰਾਂਦ', type: 'SANGRANDH' },
     ],
 
-    '2026-09-28': [{ id: 'purnima-oct', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
-    '2026-10-12': [{ id: 'maasya-oct', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
-    '2026-10-16': [
+    '2026-09-26': [{ id: 'purnima-oct', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
+    '2026-10-10': [{ id: 'maasya-oct', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
+    '2026-10-17': [
       { id: 'sangrandh-oct', titlePa: 'ਸੰਗਰਾਂਦ', type: 'SANGRANDH' },
     ],
 
-    '2026-10-28': [{ id: 'purnima-nov', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
-    '2026-11-11': [{ id: 'maasya-nov', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
-    '2026-11-14': [
+    '2026-10-26': [{ id: 'purnima-nov', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
+    '2026-11-09': [{ id: 'maasya-nov', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
+    '2026-11-16': [
       { id: 'sangrandh-nov', titlePa: 'ਸੰਗਰਾਂਦ', type: 'SANGRANDH' },
     ],
 
-    '2026-11-27': [{ id: 'purnima-dec', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
-    '2026-12-10': [{ id: 'maasya-dec', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
-    '2026-12-14': [
+    '2026-11-24': [{ id: 'purnima-dec', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
+    '2026-12-08': [{ id: 'maasya-dec', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
+    '2026-12-16': [
       { id: 'sangrandh-dec', titlePa: 'ਸੰਗਰਾਂਦ', type: 'SANGRANDH' },
     ],
+    '2026-12-23': [{ id: 'purnima-nov', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
   },
 };
 
