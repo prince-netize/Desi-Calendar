@@ -32,7 +32,9 @@ export const getPunjabiDate = date => {
 
     const prevMonthDays = daysInMonth(year, prev.gMonth);
 
-    const day = prevMonthDays - (prev.gDay - gDay) + 1;
+    const offset = prev.name === 'ਪੋਹ' ? 1 : 0;
+
+    const day = prevMonthDays - (prev.gDay - gDay) + 1 + offset;
 
     return { month: prev.name, day };
   }

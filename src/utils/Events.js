@@ -258,7 +258,7 @@ export const EVENTS_BY_YEAR = {
     '2026-06-15': [
       { id: 'sangrandh-jun', titlePa: 'ਸੰਗਰਾਂਦ', type: 'SANGRANDH' },
     ],
-    '2026-06-15': [{ id: 'maasya-jun', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
+    // '2026-06-15': [{ id: 'maasya-jun', titlePa: 'ਮੱਸਿਆ', type: 'MAASYA' }],
 
     // '2026-07-01': [{ id: 'purnima-jul', titlePa: 'ਪੁੰਨਿਆ', type: 'PURNIMA' }],
     '2026-07-16': [
