@@ -22,6 +22,8 @@ export default function CalendarGrid({ year, month, onDayPress }) {
               width: '14.30%',
               height: 40,
               backgroundColor: '#F6F6F6',
+              borderLeftWidth: 1,
+              borderColor: '#FFFFFF',
               alignItems: 'center',
               justifyContent: 'center',
             }}
