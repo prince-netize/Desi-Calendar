@@ -9,7 +9,7 @@ import CalendarEventsBar from './CalendarEventsBar';
 const WEEKDAYS = ['ਸੋਮ', 'ਮੰਗਲ', 'ਬੁੱਧ', 'ਵੀਰ', 'ਸ਼ੁੱਕਰ', 'ਸ਼ਨੀ', 'ਐਤ'];
 
 export default function CalendarGrid({ year, month, onDayPress }) {
-  const grid = generateCalendarGrid(year, month).slice(0, 42);
+  const grid = generateCalendarGrid(year, month).slice(0, 37);
   const today = new Date();
 
   return (
@@ -21,7 +21,7 @@ export default function CalendarGrid({ year, month, onDayPress }) {
             style={{
               width: '14.30%',
               height: 40,
-              backgroundColor: '#F6F6F6',
+              backgroundColor: '#FFFFFF',
               borderLeftWidth: 1,
               borderColor: '#FFFFFF',
               alignItems: 'center',

@@ -20,7 +20,7 @@ export default function DayCell({
     ? colors.primary
     : hasEvent
     ? primaryEvent.color
-    : '#F6F6F6';
+    : '#fff';
 
   const textColor = isToday
     ? '#FFFFFF'
@@ -70,7 +70,7 @@ export default function DayCell({
             fontSize: 14,
             fontWeight: '500',
             color: textColor,
-            opacity: current ? 1 : 0.2,
+            opacity: current ? 1 : 0,
           }}
         >
           {day}
