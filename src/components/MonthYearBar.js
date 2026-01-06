@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import colors from '../styles/colors';
 import { MONTHS } from '../utils/months';
@@ -12,55 +12,44 @@ export default function MonthYearBar({
   onNext,
   onMonthSelect,
   onYearSelect,
+  openDropdown,
+  setOpenDropdown,
 }) {
-  const [showMonthDrop, setShowMonthDrop] = useState(false);
-  const [showYearDrop, setShowYearDrop] = useState(false);
-
   const years = [2023, 2024, 2025, 2026];
 
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onPrev}>
-        <Feather
-          name="chevron-left"
-          size={20}
-          color={colors.white}
-          style={{ marginRight: 10 }}
-        />
+        <Feather name="chevron-left" size={20} color={colors.white} />
       </TouchableOpacity>
 
+      {/* MONTH */}
       <View>
         <TouchableOpacity
           style={styles.pill}
-          onPress={() => {
-            setShowMonthDrop(!showMonthDrop);
-            setShowYearDrop(false);
-          }}
+          onPress={() =>
+            setOpenDropdown(openDropdown === 'month' ? null : 'month')
+          }
         >
           <Text style={styles.text}>{MONTHS[month]}</Text>
-          <Feather
-            name="chevron-down"
-            size={14}
-            color="#000"
-            style={{ marginLeft: 6 }}
-          />
+          <Feather name="chevron-down" size={14} color="#000" />
         </TouchableOpacity>
 
-        {showMonthDrop && (
+        {openDropdown === 'month' && (
           <View style={styles.dropdownBox}>
             {MONTHS.map((m, i) => {
-              const isSelected = i === month;
+              const selected = i === month;
               return (
                 <TouchableOpacity
                   key={i}
-                  style={isSelected && styles.selectedItem}
+                  style={selected && styles.selectedItem}
                   onPress={() => {
                     onMonthSelect(i);
-                    setShowMonthDrop(false);
+                    setOpenDropdown(null);
                   }}
                 >
                   <Text
-                    style={[styles.dropItem, isSelected && styles.selectedText]}
+                    style={[styles.dropItem, selected && styles.selectedText]}
                   >
                     {m}
                   </Text>
@@ -71,41 +60,33 @@ export default function MonthYearBar({
         )}
       </View>
 
+      {/* YEAR */}
       <View>
         <TouchableOpacity
           style={styles.pill}
-          onPress={() => {
-            setShowYearDrop(!showYearDrop);
-            setShowMonthDrop(false);
-          }}
+          onPress={() =>
+            setOpenDropdown(openDropdown === 'year' ? null : 'year')
+          }
         >
           <Text style={styles.text}>{year}</Text>
-          <Feather
-            name="chevron-down"
-            size={14}
-            color="#000"
-            style={{ marginLeft: 6 }}
-          />
+          <Feather name="chevron-down" size={14} color="#000" />
         </TouchableOpacity>
 
-        {showYearDrop && (
-          <View
-            style={[styles.dropdownBox2, { flexDirection: 'column-reverse' }]}
-          >
+        {openDropdown === 'year' && (
+          <View style={styles.dropdownBox2}>
             {years.map(y => {
-              const isSelected = y === year;
-
+              const selected = y === year;
               return (
                 <TouchableOpacity
                   key={y}
-                  style={isSelected && styles.selectedItem}
+                  style={selected && styles.selectedItem}
                   onPress={() => {
                     onYearSelect(y);
-                    setShowYearDrop(false);
+                    setOpenDropdown(null);
                   }}
                 >
                   <Text
-                    style={[styles.dropItem, isSelected && styles.selectedText]}
+                    style={[styles.dropItem, selected && styles.selectedText]}
                   >
                     {y}
                   </Text>
@@ -117,12 +98,7 @@ export default function MonthYearBar({
       </View>
 
       <TouchableOpacity onPress={onNext}>
-        <Feather
-          name="chevron-right"
-          size={20}
-          color={colors.white}
-          style={{ marginLeft: 10 }}
-        />
+        <Feather name="chevron-right" size={20} color={colors.white} />
       </TouchableOpacity>
     </View>
   );
@@ -136,7 +112,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 12,
     paddingHorizontal: 16,
-    zIndex: 10,
+    zIndex: 20,
   },
   pill: {
     backgroundColor: colors.white,
@@ -159,8 +135,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 12,
     paddingVertical: 6,
-    elevation: 5,
-    zIndex: 100,
+    elevation: 6,
+    zIndex: 50,
   },
   dropdownBox2: {
     position: 'absolute',
@@ -169,8 +145,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 12,
     paddingVertical: 6,
-    elevation: 5,
-    zIndex: 100,
+    elevation: 6,
+    zIndex: 50,
   },
   dropItem: {
     paddingVertical: 8,
@@ -182,15 +158,9 @@ const styles = StyleSheet.create({
   selectedItem: {
     backgroundColor: colors.primary,
     borderRadius: 10,
-    height: 38,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginVertical: -6,
   },
   selectedText: {
     color: colors.white,
     fontWeight: '700',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });

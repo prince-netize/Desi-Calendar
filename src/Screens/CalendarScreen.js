@@ -1,6 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, { useState, useRef } from 'react';
-import { View, Animated, PanResponder, StyleSheet } from 'react-native';
+import {
+  View,
+  Animated,
+  PanResponder,
+  StyleSheet,
+  Pressable,
+} from 'react-native';
 import Header from '../components/Header';
 import MonthYearBar from '../components/MonthYearBar';
 import SubHeader from '../components/SubHeader';
@@ -14,6 +20,7 @@ export default function CalendarScreen() {
 
   const [month, setMonth] = useState(today.getMonth());
   const [year, setYear] = useState(today.getFullYear());
+  const [openDropdown, setOpenDropdown] = useState(null);
 
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedEvents, setSelectedEvents] = useState([]);
@@ -33,6 +40,7 @@ export default function CalendarScreen() {
   });
 
   const goNext = () => {
+    setOpenDropdown(null);
     if (month === 11) {
       setMonth(0);
       setYear(y => y + 1);
@@ -40,6 +48,7 @@ export default function CalendarScreen() {
   };
 
   const goPrev = () => {
+    setOpenDropdown(null);
     if (month === 0) {
       setMonth(11);
       setYear(y => y - 1);
@@ -47,6 +56,7 @@ export default function CalendarScreen() {
   };
 
   const handleDayPress = dateKey => {
+    setOpenDropdown(null);
     const events = getEventsForDate(dateKey);
     if (events.length > 0) {
       setSelectedEvents(events);
@@ -59,7 +69,6 @@ export default function CalendarScreen() {
       <View style={{ marginVertical: 10 }}>
         <Header />
       </View>
-
       {modalVisible && (
         <BlurView
           style={StyleSheet.absoluteFill}
@@ -68,6 +77,7 @@ export default function CalendarScreen() {
           reducedTransparencyFallbackColor="white"
         />
       )}
+
       <View style={{ marginVertical: 10 }}>
         <MonthYearBar
           month={month}
@@ -76,8 +86,17 @@ export default function CalendarScreen() {
           onNext={goNext}
           onMonthSelect={setMonth}
           onYearSelect={setYear}
+          openDropdown={openDropdown}
+          setOpenDropdown={setOpenDropdown}
         />
       </View>
+
+      {openDropdown && (
+        <Pressable
+          style={StyleSheet.absoluteFill}
+          onPress={() => setOpenDropdown(null)}
+        />
+      )}
       {modalVisible && (
         <BlurView
           style={StyleSheet.absoluteFill}
@@ -107,7 +126,6 @@ export default function CalendarScreen() {
             reducedTransparencyFallbackColor="white"
           />
         )}
-
         <EventModal
           visible={modalVisible}
           events={selectedEvents}
