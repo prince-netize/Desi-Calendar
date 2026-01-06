@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
     top: 40,
     width: 110,
     backgroundColor: colors.white,
-    borderRadius: 10,
+    borderRadius: 12,
     paddingVertical: 6,
     elevation: 5,
     zIndex: 100,
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     top: 40,
     width: 90,
     backgroundColor: colors.white,
-    borderRadius: 10,
+    borderRadius: 12,
     paddingVertical: 6,
     elevation: 5,
     zIndex: 100,
@@ -182,9 +182,15 @@ const styles = StyleSheet.create({
   selectedItem: {
     backgroundColor: colors.primary,
     borderRadius: 10,
+    height: 38,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: -6,
   },
   selectedText: {
     color: colors.white,
     fontWeight: '700',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
