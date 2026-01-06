@@ -20,7 +20,6 @@ export default function MonthYearBar({
 
   return (
     <View style={styles.container}>
-      {/* Left Arrow */}
       <TouchableOpacity onPress={onPrev}>
         <Feather
           name="chevron-left"
@@ -30,7 +29,6 @@ export default function MonthYearBar({
         />
       </TouchableOpacity>
 
-      {/* Month Dropdown */}
       <View>
         <TouchableOpacity
           style={styles.pill}
@@ -50,17 +48,25 @@ export default function MonthYearBar({
 
         {showMonthDrop && (
           <View style={styles.dropdownBox}>
-            {MONTHS.map((m, i) => (
-              <TouchableOpacity
-                key={i}
-                onPress={() => {
-                  onMonthSelect(i);
-                  setShowMonthDrop(false);
-                }}
-              >
-                <Text style={styles.dropItem}>{m}</Text>
-              </TouchableOpacity>
-            ))}
+            {MONTHS.map((m, i) => {
+              const isSelected = i === month;
+              return (
+                <TouchableOpacity
+                  key={i}
+                  style={isSelected && styles.selectedItem}
+                  onPress={() => {
+                    onMonthSelect(i);
+                    setShowMonthDrop(false);
+                  }}
+                >
+                  <Text
+                    style={[styles.dropItem, isSelected && styles.selectedText]}
+                  >
+                    {m}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
           </View>
         )}
       </View>
@@ -87,17 +93,26 @@ export default function MonthYearBar({
           <View
             style={[styles.dropdownBox2, { flexDirection: 'column-reverse' }]}
           >
-            {years.map(y => (
-              <TouchableOpacity
-                key={y}
-                onPress={() => {
-                  onYearSelect(y);
-                  setShowYearDrop(false);
-                }}
-              >
-                <Text style={styles.dropItem}>{y}</Text>
-              </TouchableOpacity>
-            ))}
+            {years.map(y => {
+              const isSelected = y === year;
+
+              return (
+                <TouchableOpacity
+                  key={y}
+                  style={isSelected && styles.selectedItem}
+                  onPress={() => {
+                    onYearSelect(y);
+                    setShowYearDrop(false);
+                  }}
+                >
+                  <Text
+                    style={[styles.dropItem, isSelected && styles.selectedText]}
+                  >
+                    {y}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
           </View>
         )}
       </View>
@@ -138,11 +153,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: colors.textDark,
   },
-  dropdown: {
-    fontSize: 12,
-    marginLeft: 6,
-    color: colors.textLight,
-  },
   dropdownBox: {
     position: 'absolute',
     top: 40,
@@ -169,5 +179,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: colors.textDark,
     textAlign: 'center',
+  },
+  selectedItem: {
+    backgroundColor: colors.primary,
+    borderRadius: 10,
+  },
+  selectedText: {
+    color: colors.white,
+    fontWeight: '700',
   },
 });
