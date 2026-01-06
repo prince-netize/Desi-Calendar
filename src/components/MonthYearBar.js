@@ -85,7 +85,7 @@ export default function MonthYearBar({
 
         {showYearDrop && (
           <View
-            style={[styles.dropdownBox, { flexDirection: 'column-reverse' }]}
+            style={[styles.dropdownBox2, { flexDirection: 'column-reverse' }]}
           >
             {years.map(y => (
               <TouchableOpacity
@@ -146,7 +146,17 @@ const styles = StyleSheet.create({
   dropdownBox: {
     position: 'absolute',
     top: 40,
-    width: 140,
+    width: 110,
+    backgroundColor: colors.white,
+    borderRadius: 10,
+    paddingVertical: 6,
+    elevation: 5,
+    zIndex: 100,
+  },
+  dropdownBox2: {
+    position: 'absolute',
+    top: 40,
+    width: 90,
     backgroundColor: colors.white,
     borderRadius: 10,
     paddingVertical: 6,
@@ -158,5 +168,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     fontSize: 16,
     color: colors.textDark,
+    textAlign: 'center',
   },
 });

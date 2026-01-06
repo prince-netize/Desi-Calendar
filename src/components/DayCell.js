@@ -17,7 +17,7 @@ export default function DayCell({
   const primaryEvent = hasEvent ? events[0] : null;
 
   const backgroundColor = isToday
-    ? colors.today
+    ? colors.primary
     : hasEvent
     ? primaryEvent.color
     : '#F6F6F6';
@@ -82,7 +82,7 @@ export default function DayCell({
             style={{
               fontSize: 10,
               marginTop: 2,
-              color: '#6D6D6D',
+              color: isToday ? '#FFFFFF' : '#6D6D6D',
               opacity: 0.85,
             }}
           >

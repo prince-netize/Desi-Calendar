@@ -9,7 +9,7 @@ import CalendarEventsBar from './CalendarEventsBar';
 const WEEKDAYS = ['ਸੋਮ', 'ਮੰਗਲ', 'ਬੁੱਧ', 'ਵੀਰ', 'ਸ਼ੁੱਕਰ', 'ਸ਼ਨੀ', 'ਐਤ'];
 
 export default function CalendarGrid({ year, month, onDayPress }) {
-  const grid = generateCalendarGrid(year, month).slice(0, 37);
+  const grid = generateCalendarGrid(year, month).slice(0, 42);
   const today = new Date();
 
   return (
