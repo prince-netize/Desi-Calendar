@@ -10,19 +10,18 @@ import {
 import colors from '../styles/colors';
 import { PUNJABI_MONTHS_NAMES } from '../utils/months';
 
-export default function EventModal({ visible, event, onClose }) {
-  if (!event) return null;
+export default function EventModal({ visible, events = [], onClose }) {
+  if (!visible || !events.length) return null;
 
-  let dateString = '';
-  if (event.date) {
-    const d = new Date(event.date);
-    if (!isNaN(d)) {
-      const day = d.getDate();
-      const month = PUNJABI_MONTHS_NAMES[d.getMonth()];
-      const year = d.getFullYear();
-      dateString = `${day} ${month} ${year}`;
-    }
-  }
+  const getDateString = date => {
+    if (!date) return '';
+    const d = new Date(date);
+    if (isNaN(d)) return '';
+    const day = d.getDate();
+    const month = PUNJABI_MONTHS_NAMES[d.getMonth()];
+    const year = d.getFullYear();
+    return `${day} ${month} ${year}`;
+  };
 
   return (
     <Modal
@@ -38,22 +37,28 @@ export default function EventModal({ visible, event, onClose }) {
       >
         <View style={styles.center}>
           <View style={styles.card}>
-            <View style={[styles.iconBox, { backgroundColor: event.color }]}>
-              {event.icon && (
-                <Image
-                  source={event.icon}
-                  style={styles.icon}
-                  resizeMode="contain"
-                />
-              )}
-            </View>
+            {events.map(event => (
+              <View key={event.id} style={styles.eventRow}>
+                <View
+                  style={[styles.iconBox, { backgroundColor: event.color }]}
+                >
+                  {event.icon && (
+                    <Image
+                      source={event.icon}
+                      style={styles.icon}
+                      resizeMode="contain"
+                    />
+                  )}
+                </View>
 
-            <View style={styles.textBox}>
-              <Text style={styles.title}>{event.titlePa}</Text>
-              {dateString ? (
-                <Text style={styles.subtitle}>{dateString}</Text>
-              ) : null}
-            </View>
+                <View style={styles.textBox}>
+                  <Text style={styles.title}>{event.titlePa}</Text>
+                  <Text style={styles.subtitle}>
+                    {getDateString(event.date)}
+                  </Text>
+                </View>
+              </View>
+            ))}
 
             <TouchableOpacity onPress={onClose} style={styles.close}>
               <Text style={styles.closeText}>✕</Text>
@@ -79,10 +84,14 @@ const styles = StyleSheet.create({
     width: '85%',
     backgroundColor: colors.white,
     borderRadius: 18,
-    flexDirection: 'row',
-    alignItems: 'center',
     padding: 16,
     elevation: 10,
+    position: 'relative',
+  },
+  eventRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 14,
   },
   iconBox: {
     width: 52,
@@ -110,8 +119,12 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   close: {
-    paddingLeft: 8,
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    padding: 8,
   },
+
   closeText: {
     fontSize: 18,
     color: '#999',

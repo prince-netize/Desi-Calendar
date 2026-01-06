@@ -17,7 +17,7 @@ export default function CalendarScreen() {
   const [year, setYear] = useState(today.getFullYear());
 
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [selectedEvents, setSelectedEvents] = useState([]);
 
   const translateX = useRef(new Animated.Value(0)).current;
 
@@ -50,7 +50,7 @@ export default function CalendarScreen() {
   const handleDayPress = dateKey => {
     const events = getEventsForDate(dateKey);
     if (events.length > 0) {
-      setSelectedEvent(events[0]);
+      setSelectedEvents(events);
       setModalVisible(true);
     }
   };
@@ -79,8 +79,15 @@ export default function CalendarScreen() {
           onYearSelect={setYear}
         />
       </View>
+      {modalVisible && (
+        <BlurView
+          style={StyleSheet.absoluteFill}
+          blurType="light"
+          blurAmount={10}
+          reducedTransparencyFallbackColor="white"
+        />
+      )}
 
-      <View style={{ backgroundColor: colors.primary }} />
       <View style={{ paddingHorizontal: 10 }}>
         <View style={{ marginVertical: 10, alignItems: 'center' }}>
           <SubHeader monthIndex={month} year={year} />
@@ -104,9 +111,7 @@ export default function CalendarScreen() {
 
         <EventModal
           visible={modalVisible}
-          event={selectedEvent}
-          year={year}
-          month={month}
+          events={selectedEvents}
           onClose={() => setModalVisible(false)}
         />
       </View>

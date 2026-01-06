@@ -1,5 +1,4 @@
 // src/utils/calendarHelpers.js
-// Punjabi Calendar Events (Purnima, Maasya, Sangrandh)
 import { EVENT_COLORS } from './calendarHelpers';
 
 export const ICONS = {
