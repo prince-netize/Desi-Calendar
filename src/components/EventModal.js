@@ -37,8 +37,14 @@ export default function EventModal({ visible, events = [], onClose }) {
       >
         <View style={styles.center}>
           <View style={styles.card}>
-            {events.map(event => (
-              <View key={event.id} style={styles.eventRow}>
+            {events.map((event, index) => (
+              <View
+                key={event.id}
+                style={[
+                  styles.eventRow,
+                  index === events.length - 1 && { marginBottom: 0 },
+                ]}
+              >
                 <View
                   style={[styles.iconBox, { backgroundColor: event.color }]}
                 >
@@ -84,10 +90,12 @@ const styles = StyleSheet.create({
     width: '85%',
     backgroundColor: colors.white,
     borderRadius: 18,
-    padding: 16,
+    paddingVertical: 8,
+    paddingHorizontal: 10,
     elevation: 10,
     position: 'relative',
   },
+
   eventRow: {
     flexDirection: 'row',
     alignItems: 'center',

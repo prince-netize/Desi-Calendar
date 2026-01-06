@@ -7,7 +7,6 @@ import SubHeader from '../components/SubHeader';
 import CalendarGrid from '../components/CalendarGrid';
 import EventModal from '../components/EventModal';
 import { getEventsForDate } from '../utils/Events';
-import colors from '../styles/colors';
 import { BlurView } from '@react-native-community/blur';
 
 export default function CalendarScreen() {
