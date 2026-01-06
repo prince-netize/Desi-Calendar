@@ -71,7 +71,6 @@ export default function MonthYearBar({
         )}
       </View>
 
-      {/* Year Dropdown */}
       <View>
         <TouchableOpacity
           style={styles.pill}
