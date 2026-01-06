@@ -21,7 +21,6 @@ export default function CalendarEventsBar({ year, month }) {
     );
 
   if (!events.length) return null;
-
   return (
     <View
       style={{
