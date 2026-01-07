@@ -158,9 +158,10 @@ const styles = StyleSheet.create({
   selectedItem: {
     backgroundColor: colors.primary,
     borderRadius: 10,
+    marginVertical: -6,
   },
   selectedText: {
     color: colors.white,
-    fontWeight: '700',
+    fontWeight: '600',
   },
 });
